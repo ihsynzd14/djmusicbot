@@ -367,4 +367,12 @@ client.on("interactionCreate", async (interaction) => {
 });
 
 console.log('Loaded BOT_TOKEN:', config.botToken ? '[OK]' : '[NOT FOUND]');
-client.login(config.botToken); 
+client.login(config.botToken);
+
+// Minimal Express web server for Render free plan
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.get('/', (req, res) => res.send('Bot is running!'));
+app.listen(PORT, () => console.log(`Web server running on port ${PORT}`)); 
